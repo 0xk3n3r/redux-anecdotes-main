@@ -2,6 +2,7 @@ import { Provider, useDispatch, useSelector } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducers/anecdoteReducer'
 import React from 'react'
+import Form from './components/Form'
 
 const store = createStore(reducer)
 
@@ -25,12 +26,7 @@ const App = () => {
         </div>
       ))}
       <h2>create new</h2>
-      <form>
-        <div>
-          <input />
-        </div>
-        <button>create</button>
-      </form>
+      <Form />
     </div>
   )
 }
