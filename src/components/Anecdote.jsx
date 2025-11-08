@@ -18,7 +18,7 @@ const Anecdotes = () => {
   }
 
   const filteredAnecdotes = anecdotes.filter(anecdote =>
-    anecdote.content.toLowerCase().includes(filter.toLowerCase())
+    anecdote.content?.toLowerCase().includes(filter.toLowerCase())
   )
 
   const sortedAnecdotes = [...filteredAnecdotes].sort((a, b) => b.votes - a.votes)
