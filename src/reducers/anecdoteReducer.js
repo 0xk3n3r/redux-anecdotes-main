@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { current } from '@reduxjs/toolkit'
 
 const anecdotesAtStart = [
   'If it hurts, do it more often',
@@ -37,6 +38,7 @@ const anecdotesSlice = createSlice({
       const anecdote = state.find(n => n.id === id)
       if (anecdote) {
         anecdote.votes += 1
+        console.log(current(state))
       }
     }
   }
