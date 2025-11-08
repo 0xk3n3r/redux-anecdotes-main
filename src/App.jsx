@@ -1,5 +1,6 @@
 import Form from './components/Form'
 import Anecdotes from './components/Anecdote'
+import Filter from './components/Filter'
 
 const App = () => {
 
