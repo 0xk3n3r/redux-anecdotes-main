@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { searchFilter } from '../reducers/filterReducer'
 import { vote } from '../reducers/anecdoteReducer'
+import { setNotification } from '../reducers/notificationReducer'
 
 const Anecdotes = () => {
   const anecdotes = useSelector(state => state.anecdotes)
@@ -9,6 +10,11 @@ const Anecdotes = () => {
 
   const handleFilterChange = (event) => {
     dispatch(searchFilter(event.target.value))
+  }
+
+  const handleVote = (anecdote) => {
+    dispatch(vote(anecdote.id))
+    dispatch(setNotification(`You voted for '${anecdote.content}'`, 3000))
   }
 
   const filteredAnecdotes = anecdotes.filter(anecdote =>
@@ -27,7 +33,7 @@ const Anecdotes = () => {
         <div key={anecdote.id}>
           <p>{anecdote.content}</p>
           <p>Votes: {anecdote.votes}</p>
-          <button onClick={() => dispatch(vote(anecdote.id))}>Vote</button>
+          <button onClick={() => handleVote(anecdote)}>Vote</button>
         </div>
       ))}
     </div>
